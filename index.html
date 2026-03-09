@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halil İbrahim Şenaydın — Software Engineer Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #ffffff;
+        --bg2: #f6f8fa;
+        --border: #d0d7de;
+        --border2: #e8ecef;
+        --link: #0969da;
+        --mono: 'JetBrains Mono', monospace;
+        --muted: #636c76;
+        --sans: 'Inter', system-ui, sans-serif;
+        --text: #1f2328;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Header */
+      header {
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .header-inner {
+        align-items: start;
+        display: grid;
+        gap: 28px;
+        grid-template-columns: auto 1fr;
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 40px 32px 36px;
+      }
+
+      .avatar {
+        border-radius: 50%;
+        border: 2px solid var(--border);
+        flex-shrink: 0;
+        height: 88px;
+        overflow: hidden;
+        width: 88px;
+      }
+
+      .avatar img {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .profile-name {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .profile-handle {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+
+      .profile-bio {
+        color: var(--text);
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+        max-width: 600px;
+      }
+
+      .profile-meta {
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 13px;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .meta-item {
+        align-items: center;
+        display: flex;
+        gap: 5px;
+      }
+
+      .profile-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .btn {
+        align-items: center;
+        background: var(--bg);
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        display: inline-flex;
+        font-size: 13px;
+        font-weight: 500;
+        gap: 6px;
+        padding: 5px 14px;
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+
+      .btn:hover {
+        background: var(--border2);
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: #1f883d;
+        border-color: rgba(31, 136, 61, 0.4);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: #1a7434;
+      }
+
+      /* Stats */
+      .stats-strip {
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stats-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 14px 32px;
+      }
+
+      .stat {
+        align-items: center;
+        color: var(--muted);
+        display: flex;
+        font-size: 13px;
+        gap: 5px;
+      }
+
+      .stat strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* Main */
+      .main {
+        align-items: start;
+        display: grid;
+        gap: 28px;
+        grid-template-columns: 270px 1fr;
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 28px 32px;
+      }
+
+      /* Sidebar */
+      .sidebar-section {
+        margin-bottom: 24px;
+      }
+
+      .sidebar-title {
+        border-bottom: 1px solid var(--border2);
+        color: var(--text);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      /* Language Pills */
+      .lang-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .lang-pill {
+        align-items: center;
+        background: var(--bg2);
+        border-radius: 20px;
+        border: 1px solid var(--border2);
+        color: var(--text);
+        display: inline-flex;
+        font-family: var(--mono);
+        font-size: 12px;
+        gap: 5px;
+        padding: 4px 10px;
+      }
+
+      .lang-pill-dot {
+        border-radius: 50%;
+        flex-shrink: 0;
+        height: 8px;
+        width: 8px;
+      }
+
+      /* Skill Tags */
+      .tags-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .stag {
+        background: var(--bg2);
+        border-radius: 4px;
+        border: 1px solid var(--border2);
+        color: var(--muted);
+        display: inline-block;
+        font-family: var(--mono);
+        font-size: 11px;
+        padding: 3px 9px;
+      }
+
+      .stag.blue {
+        background: #ddf4ff;
+        border-color: #b6e3ff;
+        color: #0550ae;
+      }
+
+      .stag.green {
+        background: #e6ffec;
+        border-color: #aff5b4;
+        color: #1a7434;
+      }
+
+      .stag.purple {
+        background: #f5f0ff;
+        border-color: #d8b4fe;
+        color: #6e40c9;
+      }
+
+      .stag.orange {
+        background: #fff8e1;
+        border-color: #fcd34d;
+        color: #9a6700;
+      }
+
+      .stag.red {
+        background: #fff0f0;
+        border-color: #fca5a5;
+        color: #b91c1c;
+      }
+
+      /* Sub-sections */
+      .sub-section {
+        margin-bottom: 14px;
+      }
+
+      .sub-title {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        margin-bottom: 6px;
+      }
+
+      /* Contact */
+      .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .contact-item {
+        align-items: center;
+        color: var(--muted);
+        display: flex;
+        font-size: 13px;
+        gap: 8px;
+      }
+
+      .contact-item a {
+        color: var(--link);
+      }
+
+      .contact-icon {
+        flex-shrink: 0;
+        font-size: 13px;
+        text-align: center;
+        width: 16px;
+      }
+
+      /* Live Badge */
+      .live-badge {
+        align-items: center;
+        background: #e6ffec;
+        border-radius: 20px;
+        border: 1px solid #aff5b4;
+        color: #1a7434;
+        display: inline-flex;
+        font-size: 11px;
+        font-weight: 500;
+        gap: 4px;
+        padding: 2px 7px;
+      }
+
+      .live-dot {
+        animation: pulse 2s infinite;
+        background: #1a7434;
+        border-radius: 50%;
+        height: 6px;
+        width: 6px;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.35;
+        }
+      }
+
+      /* Projects */
+      .section-header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .section-count {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+
+      .projects-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-card {
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px 18px;
+        text-decoration: none;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
+      }
+
+      .project-card:hover {
+        border-color: #0969da;
+        box-shadow: 0 2px 8px rgba(9, 105, 218, 0.08);
+        text-decoration: none;
+      }
+
+      .card-top {
+        align-items: flex-start;
+        display: flex;
+        gap: 8px;
+      }
+
+      .card-icon {
+        flex-shrink: 0;
+        font-size: 15px;
+        margin-top: 1px;
+      }
+
+      .card-name {
+        color: var(--link);
+        flex: 1;
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 600;
+        word-break: break-all;
+      }
+
+      .card-stars {
+        align-items: center;
+        color: var(--muted);
+        display: flex;
+        flex-shrink: 0;
+        font-size: 12px;
+        gap: 3px;
+      }
+
+      .card-desc {
+        color: var(--muted);
+        flex: 1;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .card-footer {
+        align-items: center;
+        border-top: 1px solid var(--border2);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: 8px;
+      }
+
+      .lang-badge {
+        align-items: center;
+        color: var(--muted);
+        display: flex;
+        font-size: 12px;
+        gap: 5px;
+      }
+
+      .lang-dot {
+        border-radius: 50%;
+        flex-shrink: 0;
+        height: 10px;
+        width: 10px;
+      }
+
+      .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-left: auto;
+      }
+
+      .card-tag {
+        background: var(--bg2);
+        border-radius: 4px;
+        border: 1px solid var(--border2);
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+        padding: 2px 6px;
+      }
+
+      .all-repos {
+        align-items: center;
+        border-radius: 8px;
+        border: 1px dashed var(--border);
+        color: var(--link);
+        display: flex;
+        font-size: 13px;
+        grid-column: 1 / -1;
+        justify-content: center;
+        padding: 12px;
+        transition: background 0.15s;
+      }
+
+      .all-repos:hover {
+        background: var(--bg2);
+        text-decoration: none;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 18px 32px;
+        text-align: center;
+      }
+
+      @media (max-width: 780px) {
+        .header-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .main {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-inner">
+        <div class="avatar">
+          <img
+            src="https://avatars.githubusercontent.com/u/70847361?v=4&size=64"
+            alt="Halil İbrahim Şenaydın"
+          />
+        </div>
+        <div>
+          <div class="profile-name">Halil İbrahim Şenaydın</div>
+          <div class="profile-handle">@halilsenaydin</div>
+          <p class="profile-bio">
+            Software Engineer with deep expertise across the full stack — from
+            distributed backend systems and event-driven microservices to ROS 2
+            robotics, modern web frontends, and native mobile development.
+            Committed to building reliable, scalable, and well-crafted software.
+          </p>
+          <div class="profile-meta">
+            <span class="meta-item">📍 İstanbul, Turkey</span>
+            <span class="meta-item">✉️ halilsenaydin@gmail.com</span>
+          </div>
+          <div class="profile-links">
+            <a href="mailto:halilsenaydin@gmail.com" class="btn btn-primary"
+              >✉ Get in touch</a
+            >
+            <a
+              href="https://github.com/halilsenaydin"
+              target="_blank"
+              class="btn"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                />
+              </svg>
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/halilsenaydin/"
+              target="_blank"
+              class="btn"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-strip">
+      <div class="stats-inner">
+        <div class="stat"><strong>24</strong>&nbsp;public repositories</div>
+        <div class="stat"><strong>1</strong>&nbsp;live application</div>
+        <div class="stat"><strong>2</strong>&nbsp;Pull Shark achievements</div>
+        <div class="stat">
+          <strong>10+</strong>&nbsp;languages &amp; frameworks
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+      <!-- Sidebar -->
+      <aside>
+        <!-- Languages -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">Languages</div>
+          <div class="lang-pills">
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #f89820"></span
+              >Java</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #3572a5"></span
+              >Python</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #b07219"></span
+              >C++</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #f1e05a"></span
+              >JavaScript</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #3178c6"></span
+              >TypeScript</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #a97bff"></span
+              >Kotlin</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #178600"></span
+              >C#</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #e34c26"></span
+              >HTML5</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #563d7c"></span
+              >CSS3</span
+            >
+            <span class="lang-pill"
+              ><span class="lang-pill-dot" style="background: #f05138"></span
+              >Swift</span
+            >
+          </div>
+        </div>
+
+        <!-- Frameworks & Tools -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">Frameworks &amp; Tools</div>
+
+          <div class="sub-section">
+            <div class="sub-title">Backend</div>
+            <div class="tags-wrap">
+              <span class="stag orange">Spring Boot</span>
+              <span class="stag green">Django</span>
+              <span class="stag blue">Node.js</span>
+              <span class="stag">.NET Core</span>
+              <span class="stag green">ROS 2</span>
+            </div>
+          </div>
+
+          <div class="sub-section">
+            <div class="sub-title">Frontend &amp; Mobile</div>
+            <div class="tags-wrap">
+              <span class="stag blue">React</span>
+              <span class="stag blue">React Native</span>
+              <span class="stag red">Angular</span>
+              <span class="stag">Lit Element</span>
+            </div>
+          </div>
+
+          <div class="sub-section">
+            <div class="sub-title">Data &amp; Messaging</div>
+            <div class="tags-wrap">
+              <span class="stag blue">PostgreSQL</span>
+              <span class="stag">MongoDB</span>
+              <span class="stag">Firebase</span>
+              <span class="stag green">Redis</span>
+              <span class="stag purple">RabbitMQ</span>
+              <span class="stag purple">Kafka</span>
+              <span class="stag">MQTT</span>
+              <span class="stag">Elasticsearch</span>
+            </div>
+          </div>
+
+          <div class="sub-section">
+            <div class="sub-title">State Management</div>
+            <div class="tags-wrap">
+              <span class="stag">Redux</span>
+              <span class="stag">NgRx</span>
+              <span class="stag">Context API</span>
+            </div>
+          </div>
+
+          <div class="sub-section">
+            <div class="sub-title">AI &amp; Data</div>
+            <div class="tags-wrap">
+              <span class="stag orange">TensorFlow</span>
+              <span class="stag orange">Keras</span>
+              <span class="stag">Machine Learning</span>
+            </div>
+          </div>
+
+          <div class="sub-section">
+            <div class="sub-title">Testing</div>
+            <div class="tags-wrap">
+              <span class="stag green">Jest</span>
+              <span class="stag green">Cypress</span>
+              <span class="stag">TDD</span>
+              <span class="stag">Unit Testing</span>
+            </div>
+          </div>
+
+          <div class="sub-section">
+            <div class="sub-title">DevOps &amp; Tools</div>
+            <div class="tags-wrap">
+              <span class="stag">Docker</span>
+              <span class="stag">Kubernetes</span>
+              <span class="stag">CI/CD</span>
+              <span class="stag">Git</span>
+              <span class="stag">Terraform</span>
+              <span class="stag">Confluence</span>
+            </div>
+          </div>
+
+          <div class="sub-section">
+            <div class="sub-title">Architecture</div>
+            <div class="tags-wrap">
+              <span class="stag purple">Microservices</span>
+              <span class="stag purple">Event-Driven</span>
+              <span class="stag">SOLID</span>
+              <span class="stag">MVC</span>
+              <span class="stag">MVVM</span>
+              <span class="stag">Clean Code</span>
+              <span class="stag">Agile / Scrum</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">Contact</div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-icon">✉</span>
+              <a href="mailto:halilsenaydin@gmail.com"
+                >halilsenaydin@gmail.com</a
+              >
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="#636c76">
+                  <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                  />
+                </svg>
+              </span>
+              <a href="https://github.com/halilsenaydin" target="_blank"
+                >github.com/halilsenaydin</a
+              >
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="#636c76">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </span>
+              <a
+                href="https://www.linkedin.com/in/halilsenaydin/"
+                target="_blank"
+                >LinkedIn Profile</a
+              >
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>İstanbul, Turkey</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live App -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">Live Application</div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="live-badge"
+                ><span class="live-dot"></span> live</span
+              >
+              <a href="https://scrumpoker.com.tr" target="_blank"
+                >scrumpoker.com.tr</a
+              >
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Projects -->
+      <div>
+        <div class="section-header">
+          <span class="section-title">Pinned Projects</span>
+          <span class="section-count">6 of 25 repositories</span>
+        </div>
+
+        <div class="projects-grid">
+          <a
+            href="https://github.com/halilsenaydin/spring-boot-outbox-saga-demo"
+            target="_blank"
+            class="project-card"
+          >
+            <div class="card-top">
+              <span class="card-icon">📦</span>
+              <span class="card-name">spring-boot-outbox-saga-demo</span>
+            </div>
+            <p class="card-desc">
+              Event-driven microservices demo implementing Outbox Pattern, Saga
+              Choreography, and Decorator Pattern with RabbitMQ.
+            </p>
+            <div class="card-footer">
+              <span class="lang-badge"
+                ><span class="lang-dot" style="background: #f89820"></span
+                >Java</span
+              >
+              <div class="card-tags">
+                <span class="card-tag">Spring Boot</span>
+                <span class="card-tag">RabbitMQ</span>
+                <span class="card-tag">Docker</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/halilsenaydin/django-aop-cache"
+            target="_blank"
+            class="project-card"
+          >
+            <div class="card-top">
+              <span class="card-icon">⚙️</span>
+              <span class="card-name">django-aop-cache</span>
+            </div>
+            <p class="card-desc">
+              Modular Django project demonstrating AOP techniques for caching,
+              messaging, context handling, and signal-based automation.
+            </p>
+            <div class="card-footer">
+              <span class="lang-badge"
+                ><span class="lang-dot" style="background: #3572a5"></span
+                >Python</span
+              >
+              <div class="card-tags">
+                <span class="card-tag">Django</span>
+                <span class="card-tag">AOP</span>
+                <span class="card-tag">Cache</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/halilsenaydin/scrum-poker"
+            target="_blank"
+            class="project-card"
+          >
+            <div class="card-top">
+              <span class="card-icon">🃏</span>
+              <span class="card-name">scrum-poker</span>
+              <span class="live-badge"><span class="live-dot"></span>live</span>
+            </div>
+            <p class="card-desc">
+              Real-time agile estimation tool for teams. Django Channels + Redis
+              WebSocket backend, containerized with Docker. Live at
+              scrumpoker.com.tr.
+            </p>
+            <div class="card-footer">
+              <span class="lang-badge"
+                ><span class="lang-dot" style="background: #563d7c"></span
+                >CSS</span
+              >
+              <div class="card-tags">
+                <span class="card-tag">Django</span>
+                <span class="card-tag">Redis</span>
+                <span class="card-tag">WebSocket</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/halilsenaydin/mcqueen"
+            target="_blank"
+            class="project-card"
+          >
+            <div class="card-top">
+              <span class="card-icon">🤖</span>
+              <span class="card-name">mcqueen</span>
+              <span class="card-stars">★ 2</span>
+            </div>
+            <p class="card-desc">
+              Complete ROS 2 mobile robot platform with web-based teleoperation,
+              sensor-actuator integration, and voice assistant capabilities.
+            </p>
+            <div class="card-footer">
+              <span class="lang-badge"
+                ><span class="lang-dot" style="background: #b07219"></span
+                >C++</span
+              >
+              <div class="card-tags">
+                <span class="card-tag">ROS 2</span>
+                <span class="card-tag">Robotics</span>
+                <span class="card-tag">Teleop</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/halilsenaydin/kulabuz"
+            target="_blank"
+            class="project-card"
+          >
+            <div class="card-top">
+              <span class="card-icon">🎓</span>
+              <span class="card-name">kulabuz</span>
+            </div>
+            <p class="card-desc">
+              Personalized student guidance web application — KULABUZ. Full SaaS
+              product built and deployed end-to-end.
+            </p>
+            <div class="card-footer">
+              <span class="lang-badge"
+                ><span class="lang-dot" style="background: #f89820"></span
+                >Java</span
+              >
+              <div class="card-tags">
+                <span class="card-tag">Web</span>
+                <span class="card-tag">SaaS</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/halilsenaydin/rent-uav-project"
+            target="_blank"
+            class="project-card"
+          >
+            <div class="card-top">
+              <span class="card-icon">🚁</span>
+              <span class="card-name">rent-uav-project</span>
+            </div>
+            <p class="card-desc">
+              UAV rental platform built in a focused 5-day sprint. Full-stack
+              with Django backend and Angular frontend.
+            </p>
+            <div class="card-footer">
+              <span class="lang-badge"
+                ><span class="lang-dot" style="background: #f1e05a"></span
+                >JavaScript</span
+              >
+              <div class="card-tags">
+                <span class="card-tag">Django</span>
+                <span class="card-tag">Angular</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/halilsenaydin?tab=repositories"
+            target="_blank"
+            class="all-repos"
+          >
+            View all repositories on GitHub →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      halilsenaydin@gmail.com &nbsp;·&nbsp; github.com/halilsenaydin
+      &nbsp;·&nbsp; İstanbul, Turkey
+    </footer>
+  </body>
+</html>
